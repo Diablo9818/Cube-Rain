@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db04ef6656355844eb35182b7d7266c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cube: {fileID: 6394710353788975225, guid: b2a40c0746371614ba5efd1b06cfab66, type: 3}
+  _cubeTemplate: {fileID: 6394710353788975225, guid: b2a40c0746371614ba5efd1b06cfab66, type: 3}
   _Yposition: 5
   _minXposition: -4.52
   _maxXposition: 4.52

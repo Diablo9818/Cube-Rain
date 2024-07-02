@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private Cube _cube;
+    [SerializeField] private Cube _cubeTemplate;
     [SerializeField] private float _Yposition;
 
     [SerializeField] private float _minXposition;
@@ -43,7 +42,7 @@ public class ObjectPool : MonoBehaviour
     {
         if (_cubeQueue.Count == 0)
         {
-            Instantiate(_cube, _transform.position, _transform.rotation, _transform).Initialize(this).Push();
+            Instantiate(_cubeTemplate, _transform.position, _transform.rotation, _transform).Initialize(this).Push();
         }
         
         var spawned = _cubeQueue.Dequeue();
@@ -54,13 +53,13 @@ public class ObjectPool : MonoBehaviour
 
     public void Push(Cube cube)
     {
-        cube.SetActive(false);
+        cube.gameObject.SetActive(false);
         _cubeQueue.Enqueue(cube);
     }
 
     private Vector3 GetSpawnPoint()
     {
-        return new Vector3(UnityEngine.Random.Range(_minXposition,_maxXposition), 
-            _Yposition, UnityEngine.Random.Range(_minZposition, _maxZposition));
+        return new Vector3(Random.Range(_minXposition,_maxXposition), 
+            _Yposition, Random.Range(_minZposition, _maxZposition));
     }
 }
